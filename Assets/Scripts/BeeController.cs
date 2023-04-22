@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeeController : MonoBehaviour
+public class BeeController : MonoBehaviour, IPlayerInput
 {
     [Header("Movement")]
     [SerializeField] private float flyHorizontalSpeed = 8f;
@@ -21,9 +21,11 @@ public class BeeController : MonoBehaviour
     private float movementX = 0f;
     private float movementY = 0f;
 
+    public bool InputEnabled { get; set; }
+
     public void Start()
     {
-
+        InputEnabled = true;
     }
 
     public void Update()
@@ -38,7 +40,7 @@ public class BeeController : MonoBehaviour
 
     public void Move()
     {
-        if (Input.GetKey(moveRightKey))
+        if (Input.GetKey(moveRightKey) && InputEnabled)
         {
             movementX = 1f;
             if (!isFacingRight)
@@ -46,7 +48,7 @@ public class BeeController : MonoBehaviour
                 FlipSprite();
             }
         }
-        else if (Input.GetKey(moveLeftKey))
+        else if (Input.GetKey(moveLeftKey) && InputEnabled)
         {
             movementX = -1f;
             if (isFacingRight)
@@ -59,11 +61,11 @@ public class BeeController : MonoBehaviour
             movementX = 0f;
         }
 
-        if (Input.GetKey(moveUpKey))
+        if (Input.GetKey(moveUpKey) && InputEnabled)
         {
             movementY = 1f;
         }
-        else if (Input.GetKey(moveDownKey))
+        else if (Input.GetKey(moveDownKey) && InputEnabled)
         {
             movementY = -1f;
         }

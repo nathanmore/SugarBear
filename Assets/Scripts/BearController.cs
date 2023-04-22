@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BearController : MonoBehaviour
+public class BearController : MonoBehaviour, IPlayerInput
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 8f;
@@ -23,9 +23,11 @@ public class BearController : MonoBehaviour
     private bool isFacingRight = true;
     private float movementX = 0f;
 
+    public bool InputEnabled { get; set; }
+
     public void Start()
     {
-
+        InputEnabled = true;
     }
 
     public void Update()
@@ -42,7 +44,7 @@ public class BearController : MonoBehaviour
 
     public void Move()
     {
-        if (Input.GetKey(moveRightKey))
+        if (Input.GetKey(moveRightKey) && InputEnabled)
         {
             movementX = 1f;
             if (!isFacingRight)
@@ -50,7 +52,7 @@ public class BearController : MonoBehaviour
                 FlipSprite();
             }
         }
-        else if (Input.GetKey(moveLeftKey))
+        else if (Input.GetKey(moveLeftKey) && InputEnabled)
         {
             movementX = -1f;
             if (isFacingRight)
@@ -66,11 +68,11 @@ public class BearController : MonoBehaviour
 
     public void Jump()
     {
-        if (Input.GetKeyDown(jumpKey) && IsGrounded())
+        if (Input.GetKeyDown(jumpKey) && IsGrounded() && InputEnabled)
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpPower);
         }
-        else if (Input.GetKeyUp(jumpKey))
+        else if (Input.GetKeyUp(jumpKey) && InputEnabled)
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, rigidBody.velocity.y * 0.5f);
         }
@@ -79,11 +81,11 @@ public class BearController : MonoBehaviour
     // Currently doesn't do anything, still need to implement crouching mechanic
     public void Crouch()
     {
-        if (Input.GetKeyDown(crouchKey))
+        if (Input.GetKeyDown(crouchKey) && InputEnabled)
         {
             isCrouching = true;
         }
-        else if (Input.GetKeyDown(crouchKey))
+        else if (Input.GetKeyDown(crouchKey) && InputEnabled)
         {
             isCrouching = false;
         }
