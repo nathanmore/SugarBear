@@ -25,7 +25,7 @@ public class BearController : MonoBehaviour, IPlayerInput
 
     public bool InputEnabled { get; set; }
 
-    public void Start()
+    public BearController()
     {
         InputEnabled = true;
     }

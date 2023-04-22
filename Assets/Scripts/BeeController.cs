@@ -23,7 +23,7 @@ public class BeeController : MonoBehaviour, IPlayerInput
 
     public bool InputEnabled { get; set; }
 
-    public void Start()
+    public BeeController()
     {
         InputEnabled = true;
     }
