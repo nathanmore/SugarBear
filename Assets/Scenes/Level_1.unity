@@ -618,6 +618,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bees
       objectReference: {fileID: 0}
+    - target: {fileID: 2514691459517813666, guid: ddd83b5cf632c464993d4f7e4f544bb7, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2514691459517813677, guid: ddd83b5cf632c464993d4f7e4f544bb7, type: 3}
       propertyPath: m_RootOrder
       value: 4

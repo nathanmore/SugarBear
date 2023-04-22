@@ -10,13 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2971630702831247655}
   - component: {fileID: 2971630702831247654}
-  - component: {fileID: 9059105351791917509}
+  - component: {fileID: 2695601704196263492}
   - component: {fileID: 5548875827291902866}
   - component: {fileID: 79797247670860668}
-  - component: {fileID: 2971630702674303006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: little-bear
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9059105351791917509
+--- !u!114 &2695601704196263492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +97,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2971630702831247658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4c6a5c2dcca3541a45404ade892182, type: 3}
+  m_Script: {fileID: 11500000, guid: f90114d366c01df4f8b212253ca5dae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
@@ -108,6 +107,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  moveRightKey: 100
+  moveLeftKey: 97
+  jumpKey: 119
+  crouchKey: 115
 --- !u!61 &5548875827291902866
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -155,25 +158,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2971630702674303006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2971630702831247658}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8852ba5d92c55374189c9ec6af9389cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 8
-  jumpPower: 16
-  rigidBody: {fileID: 79797247670860668}
-  groundCheck: {fileID: 5302537004645987991}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!1 &5302537004645987990
 GameObject:
   m_ObjectHideFlags: 0
