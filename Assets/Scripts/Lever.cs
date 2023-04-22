@@ -9,7 +9,7 @@ public class Lever : MonoBehaviour
     [SerializeField] private KeyCode interactKey = KeyCode.E;
     [SerializeField] private GameObject unflipped;
     [SerializeField] private GameObject flipped;
-    //[SerializeField] private Interactable linked;
+    [SerializeField] private Interactable[] linked;
     private bool isFlipped;
     private Collider2D col;
 
@@ -29,7 +29,17 @@ public class Lever : MonoBehaviour
                 isFlipped = !isFlipped;
                 unflipped.SetActive(!isFlipped);
                 flipped.SetActive(isFlipped);
-                //linked.trigger(isFlipped);
+                if (linked != null)
+                {
+                    for (int i = 0; i < linked.Length; ++i)
+                    {
+                        linked[i].trigger(isFlipped);
+                    }
+                }
+                else
+                {
+                    Debug.Log("null linked object");
+                }
             }
         }
     }

@@ -6,14 +6,24 @@ public class Button : MonoBehaviour
 {
     [SerializeField] private GameObject unpressed;
     [SerializeField] private GameObject pressed;
-    //[SerializeField] private Interactable linked;
+    [SerializeField] private Interactable[] linked;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bear"))
         {
             unpressed.SetActive(false);
             pressed.SetActive(true);
-            //linked.trigger(true);
+            if (linked != null)
+            {
+                for (int i = 0; i < linked.Length; ++i)
+                {
+                    linked[i].trigger(true);
+                }
+            }
+            else
+            {
+                Debug.Log("null linked object");
+            }
         }
     }
 
@@ -23,7 +33,17 @@ public class Button : MonoBehaviour
         {
             pressed.SetActive(false);
             unpressed.SetActive(true);
-            //linked.trigger(false);
+            if (linked != null)
+            {
+                for (int i = 0; i < linked.Length; ++i)
+                {
+                    linked[i].trigger(false);
+                }
+            }
+            else
+            {
+                Debug.Log("null linked object");
+            }
         }
     }
 
