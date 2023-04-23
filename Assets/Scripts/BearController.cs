@@ -12,12 +12,16 @@ public class BearController : MonoBehaviour, IPlayerInput
     [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject breakRight;
+    [SerializeField] private GameObject bees;
 
     [Header("Controls")]
     [SerializeField] private KeyCode moveRightKey = KeyCode.D;
     [SerializeField] private KeyCode moveLeftKey = KeyCode.A;
     [SerializeField] private KeyCode jumpKey = KeyCode.W;
     [SerializeField] private KeyCode crouchKey = KeyCode.S;
+    [SerializeField] private KeyCode breakKey = KeyCode.E;
+
 
     private bool isCrouching = false;
     private bool isFacingRight = true;
@@ -35,6 +39,7 @@ public class BearController : MonoBehaviour, IPlayerInput
         Move();
         Jump();
         Crouch();
+        BreakDoor();
     }
 
     public void FixedUpdate()
@@ -89,6 +94,26 @@ public class BearController : MonoBehaviour, IPlayerInput
         {
             isCrouching = false;
         }
+    }
+
+    public void BreakDoor()
+    {
+        if (Input.GetKeyDown(breakKey) && !breakRight.activeSelf && beeDistance() < 1)
+        {
+            Debug.Log(beeDistance());
+            StartCoroutine(breakAndWait(breakRight));
+        }
+    }
+
+    private float beeDistance()
+    {
+        return (gameObject.transform.position - bees.transform.position - new Vector3(0, .3f, 0)).magnitude;
+    }
+    IEnumerator breakAndWait(GameObject o)
+    {
+        o.SetActive(true);
+        yield return new WaitForSeconds(1);
+        o.SetActive(false);
     }
 
     private void FlipSprite()

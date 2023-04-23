@@ -6,7 +6,7 @@ using UnityEngine;
 public class Lever : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private KeyCode interactKey = KeyCode.E;
+    private KeyCode interactKey = KeyCode.RightShift;
     [SerializeField] private GameObject unflipped;
     [SerializeField] private GameObject flipped;
     [SerializeField] private Interactable[] linked;
