@@ -17,6 +17,13 @@ public class BeeController : MonoBehaviour, IPlayerInput
     [SerializeField] private KeyCode moveUpKey = KeyCode.UpArrow;
     [SerializeField] private KeyCode moveDownKey = KeyCode.DownArrow;
 
+    private GameInstanceManager instance;
+
+    public void Start()
+    {
+        instance = Resources.FindObjectsOfTypeAll<GameInstanceManager>()[0];
+    }
+
     private bool isFacingRight = true;
     private float movementX = 0f;
     private float movementY = 0f;
@@ -30,7 +37,10 @@ public class BeeController : MonoBehaviour, IPlayerInput
 
     public void Update()
     {
-        Move();
+        if (instance.isUnpaused())
+        {
+            Move();
+        }
     }
 
     public void FixedUpdate()
