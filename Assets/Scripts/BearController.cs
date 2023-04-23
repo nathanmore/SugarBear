@@ -14,6 +14,9 @@ public class BearController : MonoBehaviour, IPlayerInput
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private GameObject breakRight;
     [SerializeField] private GameObject bees;
+    [SerializeField] private Animator animator;
+    [SerializeField] private RuntimeAnimatorController pixel;
+    [SerializeField] private RuntimeAnimatorController crisp;
 
     [Header("Controls")]
     [SerializeField] private KeyCode moveRightKey = KeyCode.D;
@@ -28,6 +31,7 @@ public class BearController : MonoBehaviour, IPlayerInput
     {
         instance = Resources.FindObjectsOfTypeAll<GameInstanceManager>()[0];
         instance.UpdateGameState(GameState.Gameplay);
+        animator.runtimeAnimatorController = pixel;
     }
 
     private bool isCrouching = false;
@@ -50,6 +54,7 @@ public class BearController : MonoBehaviour, IPlayerInput
             Crouch();
             BreakDoor();
         }
+        animator.SetFloat("Speed", Mathf.Abs(movementX));
     }
 
     public void FixedUpdate()
@@ -111,6 +116,7 @@ public class BearController : MonoBehaviour, IPlayerInput
         if (Input.GetKeyDown(breakKey) && !breakRight.activeSelf && beeDistance() < 1)
         {
             Debug.Log(beeDistance());
+            animator.SetTrigger("Slam");
             StartCoroutine(breakAndWait(breakRight));
         }
     }
