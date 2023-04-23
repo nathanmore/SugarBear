@@ -18,6 +18,9 @@ public class BearController : MonoBehaviour, IPlayerInput
     [SerializeField] private Animator animator;
     [SerializeField] private RuntimeAnimatorController pixel;
     [SerializeField] private RuntimeAnimatorController crisp;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip[] roars;
+    [SerializeField] private AudioClip[] specialRoars;
 
     [Header("Controls")]
     [SerializeField] private KeyCode moveRightKey = KeyCode.D;
@@ -125,6 +128,15 @@ public class BearController : MonoBehaviour, IPlayerInput
         {
             Debug.Log(beeDistance());
             animator.SetTrigger("Slam");
+            if (Random.Range(0,6) == 0)
+            {
+                source.clip = specialRoars[Random.Range(0, specialRoars.Length)];
+            }
+            else
+            {
+                source.clip = roars[Random.Range(0, roars.Length)];
+            }
+            source.Play();
             StartCoroutine(breakAndWait(breakRight));
         }
     }
