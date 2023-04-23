@@ -5,6 +5,9 @@ using UnityEngine;
 public class LaserWall : Interactable
 {
     [SerializeField] private GameObject lasers;
+    [SerializeField] private int DelayInt;
+    [SerializeField] private bool DelayB;
+    private bool State;
 
     void Start()
     {
@@ -14,6 +17,7 @@ public class LaserWall : Interactable
 
     public override void trigger(bool state)
     {
+        State = state;
         if (isToggle)
         {
             if (state)
@@ -24,7 +28,17 @@ public class LaserWall : Interactable
         }
         else
         {
+            StartCoroutine(Activate());
             lasers.SetActive(state ^ baseState);
+        }
+    }
+
+    IEnumerator Activate()
+    {
+        if (DelayB && State)
+        {
+            yield return new WaitForSeconds(DelayInt);
+            lasers.SetActive(State ^ baseState);
         }
     }
 }
