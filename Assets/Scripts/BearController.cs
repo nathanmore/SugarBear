@@ -22,6 +22,12 @@ public class BearController : MonoBehaviour, IPlayerInput
     [SerializeField] private KeyCode crouchKey = KeyCode.S;
     [SerializeField] private KeyCode breakKey = KeyCode.E;
 
+    private GameInstanceManager instance;
+
+    public void Start()
+    {
+        instance = Resources.FindObjectsOfTypeAll<GameInstanceManager>()[0];
+    }
 
     private bool isCrouching = false;
     private bool isFacingRight = true;
@@ -36,10 +42,13 @@ public class BearController : MonoBehaviour, IPlayerInput
 
     public void Update()
     {
-        Move();
-        Jump();
-        Crouch();
-        BreakDoor();
+        if (instance.isUnpaused())
+        {
+            Move();
+            Jump();
+            Crouch();
+            BreakDoor();
+        }
     }
 
     public void FixedUpdate()

@@ -43,6 +43,11 @@ public class GameInstanceManager : MonoBehaviour
         }
     }
 
+    public bool isUnpaused()
+    {
+        return gameState == GameState.Gameplay;
+    }
+
     public void PauseGame()
     {
         gameState = GameState.Paused;
