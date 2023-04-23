@@ -12,6 +12,7 @@ public class OneTimeButton : MonoBehaviour
     {
         if (!down && collision.gameObject.layer == LayerMask.NameToLayer("Bear"))
         {
+            down = true;
             unpressed.SetActive(false);
             pressed.SetActive(true);
             if (linked != null)

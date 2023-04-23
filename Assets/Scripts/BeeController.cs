@@ -16,6 +16,7 @@ public class BeeController : MonoBehaviour, IPlayerInput
     [SerializeField] private RuntimeAnimatorController pixel;
     [SerializeField] private RuntimeAnimatorController cloud;
     [SerializeField] private RuntimeAnimatorController bruh;
+    [SerializeField] private AudioSource source;
 
     [Header("Controls")]
     [SerializeField] private KeyCode moveRightKey = KeyCode.RightArrow;
@@ -58,6 +59,14 @@ public class BeeController : MonoBehaviour, IPlayerInput
         if (instance.isUnpaused())
         {
             Move();
+        }
+        if (movementX == 0 && movementY == 0)
+        {
+            source.volume = .02f;
+        }
+        else
+        {
+            source.volume = .15f;
         }
     }
 
