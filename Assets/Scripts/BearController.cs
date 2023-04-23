@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BearController : MonoBehaviour, IPlayerInput
 {
@@ -31,7 +32,14 @@ public class BearController : MonoBehaviour, IPlayerInput
     {
         instance = Resources.FindObjectsOfTypeAll<GameInstanceManager>()[0];
         instance.UpdateGameState(GameState.Gameplay);
-        animator.runtimeAnimatorController = pixel;
+        if (SceneManager.GetActiveScene().buildIndex < 4)
+        {
+            animator.runtimeAnimatorController = pixel;
+        }
+        else
+        {
+            animator.runtimeAnimatorController = crisp;
+        }
     }
 
     private bool isCrouching = false;

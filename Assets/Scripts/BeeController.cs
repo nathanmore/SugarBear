@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
+using UnityEngine.SceneManagement;
 
 public class BeeController : MonoBehaviour, IPlayerInput
 {
@@ -10,6 +12,10 @@ public class BeeController : MonoBehaviour, IPlayerInput
 
     [Header("Component References")]
     [SerializeField] private Rigidbody2D rigidBody;
+    [SerializeField] private Animator animator;
+    [SerializeField] private RuntimeAnimatorController pixel;
+    [SerializeField] private RuntimeAnimatorController cloud;
+    [SerializeField] private RuntimeAnimatorController bruh;
 
     [Header("Controls")]
     [SerializeField] private KeyCode moveRightKey = KeyCode.RightArrow;
@@ -22,6 +28,18 @@ public class BeeController : MonoBehaviour, IPlayerInput
     public void Start()
     {
         instance = Resources.FindObjectsOfTypeAll<GameInstanceManager>()[0];
+        if (SceneManager.GetActiveScene().buildIndex < 3)
+        {
+            animator.runtimeAnimatorController = pixel;
+        }
+        else if(SceneManager.GetActiveScene().buildIndex < 5)
+        {
+            animator.runtimeAnimatorController = cloud;
+        }
+        else
+        {
+            animator.runtimeAnimatorController = bruh;
+        }
     }
 
     private bool isFacingRight = true;
