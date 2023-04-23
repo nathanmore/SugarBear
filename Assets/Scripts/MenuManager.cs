@@ -9,13 +9,13 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        GameInstanceManager.Instance.UpdateGameState(GameState.Gameplay);
         SceneManager.LoadScene(firstLevelName);
     }
 
     public void ResumeGame()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.UnloadSceneAsync(currentScene);
+        GameInstanceManager.Instance.UnpauseGame();
     }
 
     public void QuitGame()
