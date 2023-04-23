@@ -10,8 +10,9 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textDisplay;
 
     [Header("Dialogue")]
-    [SerializeField] private string[] spokenLines;
     [SerializeField] private float typeDelay = 0.02f;
+    [TextArea(3, 10)]
+    [SerializeField] private string[] spokenLines;
 
     private int index = 0;
     private string currentLine = "";
