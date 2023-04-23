@@ -27,6 +27,7 @@ public class BearController : MonoBehaviour, IPlayerInput
     public void Start()
     {
         instance = Resources.FindObjectsOfTypeAll<GameInstanceManager>()[0];
+        instance.UpdateGameState(GameState.Gameplay);
     }
 
     private bool isCrouching = false;
