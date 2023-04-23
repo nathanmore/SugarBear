@@ -112,6 +112,15 @@ public class BearController : MonoBehaviour, IPlayerInput
     IEnumerator breakAndWait(GameObject o)
     {
         o.SetActive(true);
+        if (isFacingRight)
+        {
+            rigidBody.velocity = new Vector2(-1f, rigidBody.velocity.y);
+        }
+        else
+        {
+            rigidBody.velocity = new Vector2(1f, rigidBody.velocity.y);
+        }
+
         yield return new WaitForSeconds(1);
         o.SetActive(false);
     }

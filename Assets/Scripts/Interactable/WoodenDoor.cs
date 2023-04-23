@@ -12,4 +12,12 @@ public class WoodenDoor : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.tag == "DoorBreak")
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
