@@ -29,11 +29,11 @@ public class BeeController : MonoBehaviour, IPlayerInput
     public void Start()
     {
         instance = Resources.FindObjectsOfTypeAll<GameInstanceManager>()[0];
-        if (SceneManager.GetActiveScene().buildIndex < 3)
+        if (SceneManager.GetActiveScene().buildIndex < 4)
         {
             animator.runtimeAnimatorController = pixel;
         }
-        else if(SceneManager.GetActiveScene().buildIndex < 5)
+        else if(SceneManager.GetActiveScene().buildIndex < 7)
         {
             animator.runtimeAnimatorController = cloud;
         }
