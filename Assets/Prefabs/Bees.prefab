@@ -107,7 +107,7 @@ MonoBehaviour:
   animator: {fileID: 7581117382073014937}
   pixel: {fileID: 9100000, guid: 3cc7f7875995e1247983240e2dd380de, type: 2}
   cloud: {fileID: 9100000, guid: a1bae4dd5f6153241892ddc2be3ed53f, type: 2}
-  bruh: {fileID: 9100000, guid: 3cc7f7875995e1247983240e2dd380de, type: 2}
+  bruh: {fileID: 9100000, guid: b42cba6e1520d3b4f8c4a86a522ad2e7, type: 2}
   source: {fileID: 7481518748669771091}
   moveRightKey: 275
   moveLeftKey: 276
