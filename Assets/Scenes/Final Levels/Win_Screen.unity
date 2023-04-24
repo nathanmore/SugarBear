@@ -159,7 +159,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1920, y: 1150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394738913
 MonoBehaviour:
@@ -174,14 +174,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9268729, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.98742133, b: 0.98742133, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 6ed585bb580a2c948a661b2266e0cc56, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Win! The Bear is Free!
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -595,6 +595,10 @@ PrefabInstance:
     - target: {fileID: 1562110523920915529, guid: 7942c1b5c87d0e54db9a41a8249ce963, type: 3}
       propertyPath: m_Name
       value: GameInstanceManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273066044991532825, guid: 7942c1b5c87d0e54db9a41a8249ce963, type: 3}
+      propertyPath: gameState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6886018631843499488, guid: 7942c1b5c87d0e54db9a41a8249ce963, type: 3}
       propertyPath: m_RootOrder
