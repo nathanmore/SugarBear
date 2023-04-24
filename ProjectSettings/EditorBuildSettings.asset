@@ -15,6 +15,24 @@ EditorBuildSettings:
     path: Assets/Scenes/PrologueTextScroll.unity
     guid: c01a59feb738a29448feb09fbb593898
   - enabled: 1
+    path: Assets/Scenes/Final Levels/Prologue_Scene.unity
+    guid: 83ffa9d295e46b64993356d9c42ee91e
+  - enabled: 1
+    path: Assets/Scenes/Final Levels/Tutorial.unity
+    guid: 9319f6546976cf642b2985dd1109e943
+  - enabled: 1
+    path: Assets/Scenes/Final Levels/TutorialLevel2.unity
+    guid: 7ffd659bc3041164cbcd3b5228a7d641
+  - enabled: 1
+    path: Assets/Scenes/Final Levels/Rooms 1-3.unity
+    guid: 43219fa11f6c9594999f99433e8ef7e4
+  - enabled: 1
+    path: Assets/Scenes/Final Levels/Room 3.unity
+    guid: cd7150bf5a635004788f615a87058613
+  - enabled: 1
+    path: Assets/Scenes/Final Levels/End.unity
+    guid: c28f97bf40682f4469d723e0ff1e732b
+  - enabled: 0
     path: Assets/Scenes/Level_1.unity
     guid: f912e33b10417714f96f5fec6a0de362
   m_configObjects: {}
