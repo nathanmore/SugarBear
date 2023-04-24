@@ -10,6 +10,7 @@ public class GameInstanceManager : MonoBehaviour
     public static GameInstanceManager Instance { get; private set; }
 
     [SerializeField] private string pauseMenuSceneName = "PauseMenu";
+    [SerializeField] private AudioSource music;
 
     [SerializeField] private GameState gameState;
 
@@ -24,6 +25,8 @@ public class GameInstanceManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        Instance.music.volume = .1f;
+        Instance.music.Play();
     }
     
 
