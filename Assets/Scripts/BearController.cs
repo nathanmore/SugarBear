@@ -43,6 +43,7 @@ public class BearController : MonoBehaviour, IPlayerInput
         {
             animator.runtimeAnimatorController = crisp;
         }
+        PlayNoise();
     }
 
     private bool isCrouching = false;
@@ -122,21 +123,26 @@ public class BearController : MonoBehaviour, IPlayerInput
         }
     }
 
+    public void PlayNoise()
+    {
+        if (Random.Range(0, 5) == 0)
+        {
+            source.clip = specialRoars[Random.Range(0, specialRoars.Length)];
+        }
+        else
+        {
+            source.clip = roars[Random.Range(0, roars.Length)];
+        }
+        source.Play();
+    }
+
     public void BreakDoor()
     {
         if (Input.GetKeyDown(breakKey) && !breakRight.activeSelf && beeDistance() < 1)
         {
             Debug.Log(beeDistance());
             animator.SetTrigger("Slam");
-            if (Random.Range(0,6) == 0)
-            {
-                source.clip = specialRoars[Random.Range(0, specialRoars.Length)];
-            }
-            else
-            {
-                source.clip = roars[Random.Range(0, roars.Length)];
-            }
-            source.Play();
+            PlayNoise();
             StartCoroutine(breakAndWait(breakRight));
         }
     }
