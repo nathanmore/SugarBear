@@ -35,7 +35,7 @@ public class BearController : MonoBehaviour, IPlayerInput
     {
         instance = Resources.FindObjectsOfTypeAll<GameInstanceManager>()[0];
         instance.UpdateGameState(GameState.Gameplay);
-        if (SceneManager.GetActiveScene().buildIndex < 5)
+        if (SceneManager.GetActiveScene().buildIndex < 6)
         {
             animator.runtimeAnimatorController = pixel;
         }
