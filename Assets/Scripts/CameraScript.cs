@@ -22,7 +22,6 @@ public class CameraScript : MonoBehaviour
     {
         Transform t = gameObject.transform;
         float off = (bees.transform.position.x + bear.transform.position.x + 8) / 2 - t.position.x;
-        Debug.Log(off);
         Debug.Log(t.position.x + "" + startX);
         if (Mathf.Abs(off) > 2 && (t.position.x >= startX || off > 0) && (t.position.x <= maxX || off < 0))
         {

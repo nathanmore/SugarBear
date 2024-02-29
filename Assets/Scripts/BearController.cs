@@ -26,7 +26,6 @@ public class BearController : MonoBehaviour, IPlayerInput
     [SerializeField] private KeyCode moveRightKey = KeyCode.D;
     [SerializeField] private KeyCode moveLeftKey = KeyCode.A;
     [SerializeField] private KeyCode jumpKey = KeyCode.W;
-    [SerializeField] private KeyCode crouchKey = KeyCode.S;
     [SerializeField] private KeyCode breakKey = KeyCode.E;
 
     private GameInstanceManager instance;
@@ -46,7 +45,6 @@ public class BearController : MonoBehaviour, IPlayerInput
         PlayNoise();
     }
 
-    private bool isCrouching = false;
     private bool isFacingRight = true;
     private float movementX = 0f;
 
@@ -63,7 +61,6 @@ public class BearController : MonoBehaviour, IPlayerInput
         {
             Move();
             Jump();
-            Crouch();
             BreakDoor();
         }
         animator.SetFloat("Speed", Mathf.Abs(movementX));
@@ -107,19 +104,6 @@ public class BearController : MonoBehaviour, IPlayerInput
         else if (Input.GetKeyUp(jumpKey) && InputEnabled)
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, rigidBody.velocity.y * 0.5f);
-        }
-    }
-
-    // Currently doesn't do anything, still need to implement crouching mechanic
-    public void Crouch()
-    {
-        if (Input.GetKeyDown(crouchKey) && InputEnabled)
-        {
-            isCrouching = true;
-        }
-        else if (Input.GetKeyDown(crouchKey) && InputEnabled)
-        {
-            isCrouching = false;
         }
     }
 
