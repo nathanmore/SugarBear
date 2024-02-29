@@ -7,7 +7,7 @@ class SelectDefaultLayer : ScriptableWizard
 {
     public int layerNo = 0;
 
-    [MenuItem("Editor/Select All of Tag...")]
+    [MenuItem("Editor/Select All of Layer...")]
     static void SelectAllOfTagWizard()
     {
         ScriptableWizard.DisplayWizard(

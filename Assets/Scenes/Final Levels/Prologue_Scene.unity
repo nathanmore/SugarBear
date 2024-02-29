@@ -4761,8 +4761,20 @@ PrefabInstance:
       value: DialogueBox
       objectReference: {fileID: 0}
     - target: {fileID: 673691819682545427, guid: e0930b90d6adf54469b64da37890245a, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 673691819682545427, guid: e0930b90d6adf54469b64da37890245a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 673691820166599927, guid: e0930b90d6adf54469b64da37890245a, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 673691820229646445, guid: e0930b90d6adf54469b64da37890245a, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 673691820229646447, guid: e0930b90d6adf54469b64da37890245a, type: 3}
       propertyPath: m_fontSize
@@ -4894,7 +4906,7 @@ GameObject:
   - component: {fileID: 1900175086}
   - component: {fileID: 1900175085}
   - component: {fileID: 1900175084}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
